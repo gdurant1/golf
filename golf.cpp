@@ -15,23 +15,22 @@ void mergesort(vector<unsigned int> &vec,int start, int end) {
     //BEGIN GOLF
     //find mid
     if (end - start > 1) {
-        int mid = start + (end - start)/2;
-        int i = start, j = mid;
-        vector<unsigned int> temp;
-        mergesort(vec, start, mid);
-        mergesort(vec, mid, end);
+        int m = (start + end)/2;
+        int i = start, j = m;
+        vector<unsigned int> t;
+        mergesort(vec, start, m),mergesort(vec, m, end);
         //merg into temp
 
-        while (i < mid && j < end) {
-            if (vec[i] < vec[j]) {temp.push_back(vec[i]); i++;}
-            else {temp.push_back(vec[j]); j++;}
+        while (i < m && j < end) {
+            if (vec[i] < vec[j]) {t.push_back(vec[i]); i++;}
+            else {t.push_back(vec[j]); j++;}
 
         }
 
-        while (i < mid) {temp.push_back(vec[i]); i++;}
-        while (j < end) {temp.push_back(vec[j]); j++;}
+        while (i < m) {t.push_back(vec[i]); i++;}
+        while (j < end) {t.push_back(vec[j]); j++;}
 
-        for (int k = 0; k< temp.size(); k++) {vec[start+k]=temp[k];}
+        for (int k = 0; k< t.size(); k++) {vec[start+k]=t[k];}
     }
     //END GOLF
 }
