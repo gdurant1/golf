@@ -14,12 +14,11 @@ void mergesort(vector<unsigned int> &vec,int start, int end) {
     //All semicolons and curly braces between here and the end count as a stroke against you
     //BEGIN GOLF
     //find mid
-    if (end - start > 1) {
-        int m = (start + end)/2;
-        int i = start, j = m;
-        vector<unsigned int> t;
-        mergesort(vec, start, m),mergesort(vec, m, end);
+    if (end - start > 1) {int m = (start + end)/2, i = start, j = m;vector<unsigned int> t;mergesort(vec, start, m),mergesort(vec, m, end);
         //merg into temp
+
+        while (i < m || j< end) {t.push_back(vec[i]); i++;}
+        while (j < end) {t.push_back(vec[j]); j++;}
 
         while (i < m && j < end) {
             if (vec[i] < vec[j]) {t.push_back(vec[i]); i++;}
@@ -27,8 +26,6 @@ void mergesort(vector<unsigned int> &vec,int start, int end) {
 
         }
 
-        while (i < m) {t.push_back(vec[i]); i++;}
-        while (j < end) {t.push_back(vec[j]); j++;}
 
         for (int k = 0; k< t.size(); k++) {vec[start+k]=t[k];}
     }
