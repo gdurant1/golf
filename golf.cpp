@@ -18,7 +18,7 @@ void mergesort(vector<unsigned int> &vec,int start, int end) {
 
          while (i < m || j< end)t.push_back(j>=end||i<m&&vec[i]<=vec[j]?vec[i++]:vec[j++]);
 
-         for (int k = 0; k< t.size(); k++) {vec[start+k]=t[k];}
+         for (int k = 0; k< t.size(); k++)vec[start+k]=t[k];
      }
     //END GOLF
 }
