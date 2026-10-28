@@ -3,7 +3,6 @@
 #include <array>
 #include <cstdlib>
 #include <fstream>
-#include <algorithm>
 
 using namespace std;
 
@@ -14,24 +13,23 @@ void mergesort(vector<unsigned int> &vec,int start, int end) {
     //All semicolons and curly braces between here and the end count as a stroke against you
     //BEGIN GOLF
     //find mid
-    if (end - start > 1)mergesort(vec,start,(start+end)/2),mergesort(vec,(start+end)/2,end),inplace_merge(vec.begin()+start,vec.begin()+(start+end)/2,vec.begin()+end);
-    //
-    // option B (need to learn how to combine the while statements
-    // {int m = (start + end)/2, i = start, j = m;vector<unsigned int> t;mergesort(vec, start, m),mergesort(vec, m, end);
-    //     //merg into temp
-    //
-    //     while (i < m || j< end) {t.push_back(vec[i]); i++;}
-    //     while (j < end) {t.push_back(vec[j]); j++;}
-    //
-    //     while (i < m && j < end) {
-    //         if (vec[i] < vec[j]) {t.push_back(vec[i]); i++;}
-    //         else {t.push_back(vec[j]); j++;}
-    //
-    //     }
-    //
-    //
-    //     for (int k = 0; k< t.size(); k++) {vec[start+k]=t[k];}
-    // }
+    if (end - start > 1)
+
+    // need to learn how to combine the while statements
+     {int m = (start + end)/2, i = start, j = m;vector<unsigned int> t;mergesort(vec, start, m),mergesort(vec, m, end);
+         //merg into temp
+
+         while (i < m || j< end) {t.push_back(vec[i]); i++;}
+         while (j < end) {t.push_back(vec[j]); j++;}
+
+         while (i < m && j < end) {
+             if (vec[i] < vec[j]) {t.push_back(vec[i]); i++;}
+             else {t.push_back(vec[j]); j++;}
+
+         }
+
+         for (int k = 0; k< t.size(); k++) {vec[start+k]=t[k];}
+     }
     //END GOLF
 }
 
