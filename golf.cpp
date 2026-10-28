@@ -3,6 +3,8 @@
 #include <array>
 #include <cstdlib>
 #include <fstream>
+#include <algorithm>
+
 using namespace std;
 
 
@@ -11,6 +13,27 @@ using namespace std;
 void mergesort(vector<unsigned int> &vec,int start, int end) {
     //All semicolons and curly braces between here and the end count as a stroke against you
     //BEGIN GOLF
+    //find mid
+    if (end - start < 2) return;
+    int mid = start + (end - start)/2;
+    //sort left and right half
+    mergesort(vec, start, mid);
+    mergesort(vec, mid, end);
+    //merg into temp
+    vector<int> temp;
+    int i = start;
+    int j = mid;
+    while (i < mid && j < end) {
+        if (vec[i] < vec[j]) temp.push_back(vec[i]);
+        else temp.push_back(vec[j]);
+        i++; j++;// will this work?
+    }
+
+    while (i < mid) temp.push_back(vec[i]);
+    while (j < end) temp.push_back(vec[j]);
+
+    for (int k = 0; k< temp.size(); k++) vec.push_back(temp[k]);
+
     cout << "Hello World!";
     cout << "Hello World!";
     //END GOLF
