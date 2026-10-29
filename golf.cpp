@@ -9,14 +9,10 @@ using namespace std;
 
 //This function will sort the given vector from vec[start] to vec[end], LEAST TO GREATEST
 //You must do it recursively, and can only write code in this section (between the BEGIN and END)
-void mergesort(vector<int> &vec,int start, int end) {
+void mergesort(vector<unsigned int> &vec,int start, int end) {
     //All semicolons and curly braces between here and the end count as a stroke against you
     //BEGIN GOLF
-    //find mid
-    if (end - start > 1){int m = (start + end)/2, i = start, j = m;vector<int> t;mergesort(vec, start, m),mergesort(vec, m, end);while (i < m || j< end)t.push_back(j>=end||i<m&&vec[i]<=vec[j]?vec[i++]:vec[j++]);
-
-         for (int k:t)vec[start+k]=t[k];
-     }
+    if (end - start > 1){int m = (start + end)/2, i = start, j = m;vector<int> t;mergesort(vec, start, m),mergesort(vec, m, end);while (i < m || j< end)t.push_back(j>=end||i<m&&vec[i]<=vec[j]?vec[i++]:vec[j++]);for (int k:t)vec[start++]=k;}
     //END GOLF
 }
 
