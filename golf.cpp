@@ -13,6 +13,9 @@ void mergesort(vector<unsigned int> &vec,int start, int end) {
     //All semicolons and curly braces between here and the end count as a stroke against you
     //BEGIN GOLF
     if (end - start > 1){int m = (start + end)/2, i = start, j = m;vector<int> t;mergesort(vec, start, m),mergesort(vec, m, end);while (i < m || j< end)t.push_back(j>=end||i<m&&vec[i]<=vec[j]?vec[i++]:vec[j++]);for (int k:t)vec[start++]=k;}
+
+    cout << "Hello world!" << endl;
+    cout << "Hello world!" << endl;
     //END GOLF
 }
 
